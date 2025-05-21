@@ -5,39 +5,74 @@ on:
     branches:
       - main
 
-jobs:
+](https://github.com/Abdul9010150809/Tic_Tac_Toe-1vs1/settings/pages).
+   - Under "Source," select the branch (`jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
+main`) and folder (e.g      contents: write
+      pages:., `/ (root)`).
+   write
+      id-token: write
+
+    steps:
+      - name: Checkout - Save the settings.
+
+#### 3. Adjust Workflow for Robust repository
+        uses: actions/checkout@vness
+Update the workflow to make it more resilient.4
+
+      - name: Setup Pages
+        uses: actions/config For example, you can add an error message if `index.html` is not found or simplify the deployment process. Here'sure-pages@v3
+
+      - name: Validate index.html exists and is the updated workflow:
+
+```yaml
+name: Deploy to not empty
+        run: |
+          if [ GitHub Pages
+
+on:
+  push:
+    branches:
+      - main ! -s index.html ]; then
+            echo "❌ index.html is missing
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    or empty"
+            exit 1
+          fi permissions:
       contents: write
       pages: write
+
+      - name: Install tidy for HTML linting
+        run:
       id-token: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      - name: Validate index.html exists and is not empty
-        run: |
-          if [ ! -s index.html ]; then
-            echo "❌ index.html is missing or empty"
-            exit 1
-          fi
-
-      - name: Install tidy for HTML linting
-        run: sudo apt-get update && sudo apt-get install -y tidy
+ sudo apt-get update && sudo apt-get install -y        uses: actions/checkout@v tidy
 
       - name: Run HTML validation on index.html
-        run: |
+4
+
+      - name: Setup Pages
+        uses: actions/config        run: |
           tidy -e index.html || true  # Logs warnings but doesn’t fail the build
 
-      - name: Upload site to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+     ure-pages@v3
+
+      - name: Validate index.html exists and is - name: Upload site to GitHub Pages
+        uses: not empty
+        run: |
+          if [ ! actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path -s index.html ]; then
+            echo "❌ index.html is missing or empty"
+            echo "Please ensure the: '.'
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
+        uses file exists and is not empty."
+            exit : actions/deploy-pages@v3
