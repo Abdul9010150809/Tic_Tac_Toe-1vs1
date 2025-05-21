@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe - 1 vs 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <button id="mode-toggle">Toggle Theme</button>
+  </div>
+
+  <div id="player-setup" class="setup">
+    <h2>Enter Player Names</h2>
+    <input type="text" id="playerX" placeholder="Player X Name" required />
+    <input type="text" id="playerO" placeholder="Player O Name" required />
+    <button id="start-game">Start Game</button>
+  </div>
+
+  <main id="main-game" class="hide">
+    <h1>Tic Tac Toe</h1>
+    <p id="turn">Turn: X</p>
+    <div class="scoreboard">
+      <span id="scoreX">X: 0</span>
+      <span id="scoreO">O: 0</span>
+      <span id="draws">Draws: 0</span>
+    </div>
+    <div class="game">
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+      <button class="box"></button>
+    </div>
+    <div class="controls">
+      <button id="reset-btn">Reset Board</button>
+      <button id="new-btn">New Game</button>
+    </div>
+    <p id="msg" class="hide"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

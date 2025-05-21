@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Validate index.html exists and is not empty
+        run: |
+          if [ ! -s index.html ]; then
+            echo "❌ index.html is missing or empty"
+            exit 1
+          fi
+
+      - name: Install tidy for HTML linting
+        run: sudo apt-get update && sudo apt-get install -y tidy
+
+      - name: Run HTML validation on index.html
+        run: |
+          tidy -e index.html || true  # Logs warnings but doesn’t fail the build
+
+      - name: Upload site to GitHub Pages
+        uses: actions/upload-pages-artifact@v3  # Update to the latest version
+        with:
+            path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
