@@ -35,10 +35,9 @@ jobs:
           tidy -e index.html || true  # Logs warnings but doesn’t fail the build
 
       - name: Upload site to GitHub Pages
-        uses: actions/upload-pages-artifact@v3  # Update to the latest version
+        uses: actions/upload-pages-artifact@v3
         with:
-            path: '.'
+          path: '.'
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v3
